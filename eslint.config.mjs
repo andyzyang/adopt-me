@@ -7,6 +7,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
+import reactHooks from "eslint-plugin-react-hooks";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,6 +24,7 @@ export default [
       "plugin:import/errors",
       "plugin:react/recommended",
       "plugin:jsx-a11y/recommended",
+      "plugin:react-hooks/recommended",
       "prettier",
     ),
   ),
@@ -31,6 +33,7 @@ export default [
       react: fixupPluginRules(react),
       import: fixupPluginRules(_import),
       "jsx-a11y": fixupPluginRules(jsxA11Y),
+      reactHooks: fixupPluginRules(reactHooks),
     },
     files: ["**/*.jsx"],
     languageOptions: {
